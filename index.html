@@ -2,463 +2,89 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>지에스골드파인 | GS GOLD&FINE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <style>
-        /* 전체 초기화 */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --gold: #D4AF37;
-            --dark: #1a1a2e;
-        }
-        
-        body {
-            font-family: 'Noto Sans KR', -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* 헤더 */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-        }
-        
-        .logo-icon {
-            font-size: 2rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-link:hover {
-            color: var(--gold);
-        }
-        
-        .nav-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* 섹션 */
-        .section {
-            display: none;
-            padding: 100px 0 50px;
-            min-height: 100vh;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        /* 히어로 */
-        .hero {
-            display: flex !important;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin: 0 10px;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212,175,55,0.3);
-        }
-        
-        /* 섹션 헤더 */
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
-        }
-        
-        /* 금시세 카드 */
-        .prices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .price-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .price-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .price-title {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .price-label {
-            font-weight: 600;
-            color: #666;
-        }
-        
-        .price-value {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--dark);
-        }
-        
-        /* 회사소개 */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-content h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            line-height: 1.4;
-        }
-        
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        /* 푸터 */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer h4 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-        
-        .footer ul {
-            list-style: none;
-        }
-        
-        .footer a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer a:hover {
-            color: var(--gold);
-        }
-        
-        /* 모바일 대응 */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 4rem 2rem;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-                transition: right 0.3s;
-            }
-            
-            .nav-menu.show {
-                right: 0;
-            }
-            
-            .nav-toggle {
-                display: block;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .prices-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* 로딩 표시 */
-        body::after {
-            content: "✅ CSS 로드 완료!";
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: green;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            animation: fadeOut 3s forwards;
-            z-index: 9999;
-        }
-        
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            70% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-    </style>
+    <title>지에스골드파인 | GS GOLD&FINE - 대한민국 No.1 금거래 전문 기업</title>
+    <meta name="description" content="지에스골드파인, 지에스골드, GS GOLD FINE - 실시간 금시세, 골드바, 실버바 거래, 한국금거래소 기준 시세, 포인트 교환 시스템을 갖춘 프리미엄 금거래 전문 플랫폼">
+    <meta name="keywords" content="지에스골드, 지에스골드파인, GS GOLD, GS GOLD FINE, 금거래, 금시세, 골드바, 실버바, 금 매입, 금 매도, 순금, 18K, 14K, 백금, 은, 한국금거래소, 실시간 금시세, 금 투자, 귀금속">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="지에스골드파인 | GS GOLD&FINE - 대한민국 No.1 금거래">
+    <meta property="og:description" content="실시간 금시세 확인, 골드바/실버바 거래, 한국금거래소 기준 시세 제공">
+    
+    <link rel="canonical" href="https://www.gsgoldfine.com">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 헤더 -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="nav container">
             <a href="#home" class="nav-logo">
-                <span class="logo-icon">💰</span>
-                <span>GS GOLD&FINE</span>
+                <img src="images/logo.png?v=8" alt="GS GOLD&FINE 금거래소" class="logo-image">
+                <span class="logo-text">GS GOLD&FINE</span>
             </a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">홈</a></li>
-                <li><a href="#about" class="nav-link">회사소개</a></li>
-                <li><a href="#prices" class="nav-link">금시세</a></li>
-            </ul>
-            <div class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link">홈</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">회사소개</a></li>
+                    <li class="nav-item"><a href="#prices" class="nav-link">금시세</a></li>
+                    <li class="nav-item"><a href="#products" class="nav-link">상품안내</a></li>
+                    <li class="nav-item"><a href="#signup" class="nav-link">회원가입</a></li>
+                    <li class="nav-item"><a href="#exchange" class="nav-link">포인트 교환</a></li>
+                    <li class="nav-item"><a href="#charge" class="nav-link">포인트 충전</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <span class="user-welcome"><i class="fas fa-user"></i> <span id="userName"></span>님</span>
+                    <span class="user-points"><i class="fas fa-coins"></i> <span id="userPoints">0</span>P</span>
+                    <button class="btn-logout" id="btnLogout">로그아웃</button>
+                </div>
+                <div class="nav-btns" id="authBtns">
+                    <a href="#signup" class="btn-login">회원가입</a>
+                    <button class="btn-signup" id="btnLoginModal">로그인</button>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </nav>
     </header>
 
-    <!-- 히어로 -->
     <section class="hero" id="home">
-        <h1 class="hero-title">지에스골드&파인</h1>
-        <p class="hero-subtitle">신뢰와 투명성을 바탕으로 최고의 금거래 서비스를 제공합니다</p>
-        <div>
-            <a href="#prices" class="btn">실시간 금시세</a>
-            <a href="#about" class="btn">회사소개</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">지에스골드&파인</h1>
+            <p class="hero-subtitle">지에스골드&파인 GS GOLD&FINE - 신뢰와 투명성을 바탕으로 최고의 금거래 서비스를 제공합니다</p>
+            <div class="hero-buttons">
+                <a href="#prices" class="btn btn-primary">실시간 금시세</a>
+                <a href="#signup" class="btn btn-secondary">회원가입</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#prices" class="scroll-link">
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
     </section>
 
-    <!-- 금시세 -->
-    <section class="section" id="prices">
+    <section class="video-section" id="video">
         <div class="container">
-            <h2 class="section-title">실시간 금시세</h2>
-            <p class="section-subtitle">한국금거래소(KGX) 기준 시세</p>
-            
-            <div class="prices-grid">
-                <div class="price-card">
-                    <h3 class="price-title">순금 24K</h3>
-                    <div class="price-item">
-                        <span class="price-label">살때</span>
-                        <span class="price-value">1,073,000원/돈</span>
-                    </div>
-                    <div class="price-item">
-                        <span class="price-label">팔때</span>
-                        <span class="price-value">883,300원/돈</span>
-                    </div>
-                </div>
-                
-                <div class="price-card">
-                    <h3 class="price-title">순금 18K</h3>
-                    <div class="price-item">
-                        <span class="price-label">살때</span>
-                        <span class="price-value">804,750원/돈</span>
-                    </div>
-                    <div class="price-item">
-                        <span class="price-label">팔때</span>
-                        <span class="price-value">662,475원/돈</span>
-                    </div>
-                </div>
-                
-                <div class="price-card">
-                    <h3 class="price-title">골드바 1돈</h3>
-                    <div class="price-item">
-                        <span class="price-label">살때</span>
-                        <span class="price-value">1,073,000원/돈</span>
-                    </div>
-                    <div class="price-item">
-                        <span class="price-label">팔때</span>
-                        <span class="price-value">883,300원/돈</span>
-                    </div>
-                </div>
+            <div class="video-wrapper">
+                <video controls playsinline webkit-playsinline>
+                    <source src="https://www.genspark.ai/api/files/s/Ak1lmkMo" type="video/mp4">
+                    브라우저가 비디오 태그를 지원하지 않습니다.
+                </video>
             </div>
         </div>
     </section>
-
-    <!-- 회사소개 -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title"><strong>지에스골드파인 - 신뢰할 수 있는 금거래 파트너</strong></h2>
-                <p>지에스골드(GS GOLD&FINE)는 30년의 역사와 전통을 자랑하는 대한민국 대표 금거래 전문 기업입니다. 
-                투명한 거래와 고객 만족을 최우선으로 하며, 전문 감정사의 정확한 감정과 
-                한국금거래소 기준 공정한 시세를 제공합니다.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 푸터 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h4>빠른 링크</h4>
-                    <ul>
-                        <li><a href="#home">홈</a></li>
-                        <li><a href="#about">회사소개</a></li>
-                        <li><a href="#prices">금시세</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>회사 정보</h4>
-                    <p>서울특별시 강남구 테헤란로 123</p>
-                    <p>대표: 홍길동</p>
-                    <p>TEL: 1588-0000</p>
-                </div>
-            </div>
-            <p>&copy; 2024 GS GOLD&FINE. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // 메뉴 토글
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('show');
-            });
-        }
-        
-        // 섹션 전환
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(sectionId);
-            if (target && target.classList.contains('section')) {
-                target.classList.add('active');
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-            navMenu.classList.remove('show');
-        }
-        
-        // 메뉴 클릭
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const hash = link.getAttribute('href').substring(1);
-                if (hash !== 'home') showSection(hash);
-                else window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-        
-        // 버튼 클릭
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const href = btn.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const hash = href.substring(1);
-                    showSection(hash);
-                }
-            });
-        });
-        
-        // 페이지 로드 시
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1);
-            if (hash && hash !== 'home') showSection(hash);
-        });
-    </script>
-</body>
-</html>

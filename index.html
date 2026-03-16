@@ -1,0 +1,100 @@
+    1	<!DOCTYPE html>
+     2	<html lang="ko">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+     6	    <meta name="mobile-web-app-capable" content="yes">
+     7	    <meta name="apple-mobile-web-app-capable" content="yes">
+     8	    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+     9	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    10	    
+    11	    <!-- SEO 메타 태그 -->
+    12	    <title>지에스골드파인 | GS GOLD&FINE - 대한민국 No.1 금거래 전문 기업</title>
+    13	    <meta name="description" content="지에스골드파인, 지에스골드, GS GOLD FINE - 실시간 금시세, 골드바, 실버바 거래, 한국금거래소 기준 시세, 포인트 교환 시스템을 갖춘 프리미엄 금거래 전문 플랫폼">
+    14	    <meta name="keywords" content="지에스골드, 지에스골드파인, GS GOLD, GS GOLD FINE, 금거래, 금시세, 골드바, 실버바, 금 살때, 금 팔때, 순금, 18K, 14K, 백금, 은, 한국금거래소, 실시간 금시세, 금 투자, 귀금속">
+    15	    <meta name="author" content="GS GOLD&FINE">
+    16	    <meta name="robots" content="index, follow">
+    17	    <meta name="googlebot" content="index, follow">
+    18	    
+    19	    <!-- 검색엔진 소유권 확인 (배포 후 추가) -->
+    20	    <!-- <meta name="google-site-verification" content="구글_인증_코드를_여기에_입력" /> -->
+    21	    <!-- <meta name="naver-site-verification" content="네이버_인증_코드를_여기에_입력" /> -->
+    22	    
+    23	    <!-- Open Graph / 소셜미디어 공유 -->
+    24	    <meta property="og:type" content="website">
+    25	    <meta property="og:title" content="지에스골드파인 | GS GOLD&FINE - 대한민국 No.1 금거래">
+    26	    <meta property="og:description" content="실시간 금시세 확인, 골드바/실버바 거래, 한국금거래소 기준 시세 제공">
+    27	    <meta property="og:site_name" content="지에스골드파인">
+    28	    <meta property="og:locale" content="ko_KR">
+    29	    
+    30	    <!-- 추가 SEO -->
+    31	    <meta name="format-detection" content="telephone=no">
+    32	    <link rel="canonical" href="https://www.gsgoldfine.com">
+    33	    
+    34	    <link rel="stylesheet" href="css/style.css">
+    35	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    36	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    37	</head>
+    38	<body>
+    39	    <!-- 헤더 -->
+    40	    <header class="header" id="header">
+    41	        <nav class="nav container">
+    42	            <a href="#" class="nav-logo">
+    43	                <img src="images/logo.png?v=6" alt="GS GOLD&FINE 금거래소" class="logo-image">
+    44	                <span class="logo-text">GS GOLD&FINE</span>
+    45	            </a>
+    46	
+    47	            <div class="nav-menu" id="nav-menu">
+    48	                <ul class="nav-list">
+    49	                    <li class="nav-item"><a href="#home" class="nav-link">홈</a></li>
+    50	                    <li class="nav-item"><a href="#about" class="nav-link">회사소개</a></li>
+    51	                    <li class="nav-item"><a href="#prices" class="nav-link">금시세</a></li>
+    52	                    <li class="nav-item"><a href="#products" class="nav-link">상품안내</a></li>
+    53	                    <li class="nav-item"><a href="#signup" class="nav-link">회원가입</a></li>
+    54	                    <li class="nav-item"><a href="#exchange" class="nav-link">포인트 교환</a></li>
+    55	                    <li class="nav-item"><a href="#charge" class="nav-link">포인트 충전</a></li>
+    56	                </ul>
+    57	
+    58	                <div class="nav-close" id="nav-close">
+    59	                    <i class="fas fa-times"></i>
+    60	                </div>
+    61	            </div>
+    62	
+    63	            <div class="nav-actions">
+    64	                <div class="user-info" id="userInfo" style="display: none;">
+    65	                    <span class="user-welcome"><i class="fas fa-user"></i> <span id="userName"></span>님</span>
+    66	                    <span class="user-points"><i class="fas fa-coins"></i> <span id="userPoints">0</span>P</span>
+    67	                    <button class="btn-logout" id="btnLogout">로그아웃</button>
+    68	                </div>
+    69	                <div class="nav-btns" id="authBtns">
+    70	                    <a href="#signup" class="btn-login">회원가입</a>
+    71	                    <button class="btn-signup" id="btnLoginModal">로그인</button>
+    72	                </div>
+    73	                <div class="nav-toggle" id="nav-toggle">
+    74	                    <i class="fas fa-bars"></i>
+    75	                </div>
+    76	            </div>
+    77	        </nav>
+    78	    </header>
+    79	
+    80	    <!-- 히어로 섹션 -->
+    81	    <section class="hero" id="home">
+    82	        <div class="hero-overlay"></div>
+    83	        <div class="hero-content">
+    84	            <h1 class="hero-title">지에스골드&파인</h1>
+    85	            <p class="hero-subtitle">지에스골드&파인 GS GOLD&FINE - 신뢰와 투명성을 바탕으로 최고의 금거래 서비스를 제공합니다</p>
+    86	            <div class="hero-buttons">
+    87	                <a href="#prices" class="btn btn-primary">실시간 금시세</a>
+    88	                <a href="#signup" class="btn btn-secondary">회원가입</a>
+    89	            </div>
+    90	        </div>
+    91	        <div class="hero-scroll">
+    92	            <a href="#prices" class="scroll-link">
+    93	                <i class="fas fa-chevron-down"></i>
+    94	            </a>
+    95	        </div>
+    96	    </section>
+    97	
+    98	    <!-- 홍보 영상 섹션 -->
+    99	    <section class="video-section" id="video">
+   100	        <div class="container">

@@ -1,688 +1,464 @@
- 1	<!DOCTYPE html>
-     2	<html lang="ko">
-     3	<head>
-     4	    <meta charset="UTF-8">
-     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-     6	    <meta name="mobile-web-app-capable" content="yes">
-     7	    <meta name="apple-mobile-web-app-capable" content="yes">
-     8	    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-     9	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    10	    
-    11	    <!-- SEO 메타 태그 -->
-    12	    <title>지에스골드파인 | GS GOLD&FINE - 대한민국 No.1 금거래 전문 기업</title>
-    13	    <meta name="description" content="지에스골드파인, 지에스골드, GS GOLD FINE - 실시간 금시세, 골드바, 실버바 거래, 한국금거래소 기준 시세, 포인트 교환 시스템을 갖춘 프리미엄 금거래 전문 플랫폼">
-    14	    <meta name="keywords" content="지에스골드, 지에스골드파인, GS GOLD, GS GOLD FINE, 금거래, 금시세, 골드바, 실버바, 금 매입, 금 매도, 순금, 18K, 14K, 백금, 은, 한국금거래소, 실시간 금시세, 금 투자, 귀금속">
-    15	    <meta name="author" content="GS GOLD&FINE">
-    16	    <meta name="robots" content="index, follow">
-    17	    <meta name="googlebot" content="index, follow">
-    18	    
-    19	    <!-- 검색엔진 소유권 확인 (배포 후 추가) -->
-    20	    <!-- <meta name="google-site-verification" content="구글_인증_코드를_여기에_입력" /> -->
-    21	    <!-- <meta name="naver-site-verification" content="네이버_인증_코드를_여기에_입력" /> -->
-    22	    
-    23	    <!-- Open Graph / 소셜미디어 공유 -->
-    24	    <meta property="og:type" content="website">
-    25	    <meta property="og:title" content="지에스골드파인 | GS GOLD&FINE - 대한민국 No.1 금거래">
-    26	    <meta property="og:description" content="실시간 금시세 확인, 골드바/실버바 거래, 한국금거래소 기준 시세 제공">
-    27	    <meta property="og:site_name" content="지에스골드파인">
-    28	    <meta property="og:locale" content="ko_KR">
-    29	    
-    30	    <!-- 추가 SEO -->
-    31	    <meta name="format-detection" content="telephone=no">
-    32	    <link rel="canonical" href="https://www.gsgoldfine.com">
-    33	    
-    34	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thsun1018/gs-gold@main/css/style.css">
-    35	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    36	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    37	</head>
-    38	<body>
-    39	    <!-- 헤더 -->
-    40	    <header class="header" id="header">
-    41	        <nav class="nav container">
-    42	            <a href="#home" class="nav-logo">
-    43	                <img src="images/logo.png?v=8" alt="GS GOLD&FINE 금거래소" class="logo-image">
-    44	                <span class="logo-text">GS GOLD&FINE</span>
-    45	            </a>
-    46	
-    47	            <div class="nav-menu" id="nav-menu">
-    48	                <ul class="nav-list">
-    49	                    <li class="nav-item"><a href="#home" class="nav-link">홈</a></li>
-    50	                    <li class="nav-item"><a href="#about" class="nav-link">회사소개</a></li>
-    51	                    <li class="nav-item"><a href="#prices" class="nav-link">금시세</a></li>
-    52	                    <li class="nav-item"><a href="#products" class="nav-link">상품안내</a></li>
-    53	                    <li class="nav-item"><a href="#signup" class="nav-link">회원가입</a></li>
-    54	                    <li class="nav-item"><a href="#exchange" class="nav-link">포인트 교환</a></li>
-    55	                    <li class="nav-item"><a href="#charge" class="nav-link">포인트 충전</a></li>
-    56	                </ul>
-    57	
-    58	                <div class="nav-close" id="nav-close">
-    59	                    <i class="fas fa-times"></i>
-    60	                </div>
-    61	            </div>
-    62	
-    63	            <div class="nav-actions">
-    64	                <div class="user-info" id="userInfo" style="display: none;">
-    65	                    <span class="user-welcome"><i class="fas fa-user"></i> <span id="userName"></span>님</span>
-    66	                    <span class="user-points"><i class="fas fa-coins"></i> <span id="userPoints">0</span>P</span>
-    67	                    <button class="btn-logout" id="btnLogout">로그아웃</button>
-    68	                </div>
-    69	                <div class="nav-btns" id="authBtns">
-    70	                    <a href="#signup" class="btn-login">회원가입</a>
-    71	                    <button class="btn-signup" id="btnLoginModal">로그인</button>
-    72	                </div>
-    73	                <div class="nav-toggle" id="nav-toggle">
-    74	                    <i class="fas fa-bars"></i>
-    75	                </div>
-    76	            </div>
-    77	        </nav>
-    78	    </header>
-    79	
-    80	    <!-- 히어로 섹션 -->
-    81	    <section class="hero" id="home">
-    82	        <div class="hero-overlay"></div>
-    83	        <div class="hero-content">
-    84	            <h1 class="hero-title">지에스골드&파인</h1>
-    85	            <p class="hero-subtitle">지에스골드&파인 GS GOLD&FINE - 신뢰와 투명성을 바탕으로 최고의 금거래 서비스를 제공합니다</p>
-    86	            <div class="hero-buttons">
-    87	                <a href="#prices" class="btn btn-primary">실시간 금시세</a>
-    88	                <a href="#signup" class="btn btn-secondary">회원가입</a>
-    89	            </div>
-    90	        </div>
-    91	        <div class="hero-scroll">
-    92	            <a href="#prices" class="scroll-link">
-    93	                <i class="fas fa-chevron-down"></i>
-    94	            </a>
-    95	        </div>
-    96	    </section>
-    97	
-    98	    <!-- 홍보 영상 섹션 -->
-    99	    <section class="video-section" id="video">
-   100	        <div class="container">
-   101	            <div class="video-wrapper">
-   102	                <video controls playsinline webkit-playsinline>
-   103	                    <source src="https://www.genspark.ai/api/files/s/Ak1lmkMo" type="video/mp4">
-   104	                    브라우저가 비디오 태그를 지원하지 않습니다.
-   105	                </video>
-   106	            </div>
-   107	        </div>
-   108	    </section>
-   109	
-   110	    <!-- 실시간 금시세 -->
-   111	    <section class="section prices" id="prices">
-   112	        <div class="container">
-   113	            <div class="section-header">
-   114	                <h2 class="section-title">실시간 금시세</h2>
-   115	                <p class="section-subtitle">한국금거래소(KGX) 실시간 시세 - 국제 금시세 및 환율 반영</p>
-   116	                <div class="update-time">
-   117	                    <i class="fas fa-clock"></i>
-   118	                    <span id="updateTime">14:30:25 (한국금거래소 실시간)</span>
-   119	                </div>
-   120	            </div>
-   121	
-   122	            <div class="prices-grid">
-   123	                <div class="price-card">
-   124	                    <div class="price-header">
-   125	                        <h3 class="price-title">순금 24K</h3>
-   126	                        <span class="price-badge">오늘의 시세</span>
-   127	                    </div>
-   128	                    <div class="price-body">
-   129	                        <div class="price-item">
-   130	                            <span class="price-label">매입</span>
-   131	                            <span class="price-value" data-price="buy-24k">1,073,000원/돈</span>
-   132	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.1%</span>
-   133	                        </div>
-   134	                        <div class="price-item">
-   135	                            <span class="price-label">매도</span>
-   136	                            <span class="price-value" data-price="sell-24k">883,300원/돈</span>
-   137	                            <span class="price-change down"><i class="fas fa-arrow-down"></i> -0.1%</span>
-   138	                        </div>
-   139	                    </div>
-   140	                </div>
-   141	
-   142	                <div class="price-card">
-   143	                    <div class="price-header">
-   144	                        <h3 class="price-title">순금 18K</h3>
-   145	                    </div>
-   146	                    <div class="price-body">
-   147	                        <div class="price-item">
-   148	                            <span class="price-label">매입</span>
-   149	                            <span class="price-value" data-price="buy-18k">804,750원/돈</span>
-   150	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.1%</span>
-   151	                        </div>
-   152	                        <div class="price-item">
-   153	                            <span class="price-label">매도</span>
-   154	                            <span class="price-value" data-price="sell-18k">662,475원/돈</span>
-   155	                            <span class="price-change down"><i class="fas fa-arrow-down"></i> -0.1%</span>
-   156	                        </div>
-   157	                    </div>
-   158	                </div>
-   159	
-   160	                <div class="price-card">
-   161	                    <div class="price-header">
-   162	                        <h3 class="price-title">순금 14K</h3>
-   163	                    </div>
-   164	                    <div class="price-body">
-   165	                        <div class="price-item">
-   166	                            <span class="price-label">매입</span>
-   167	                            <span class="price-value" data-price="buy-14k">627,705원/돈</span>
-   168	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.05%</span>
-   169	                        </div>
-   170	                        <div class="price-item">
-   171	                            <span class="price-label">매도</span>
-   172	                            <span class="price-value" data-price="sell-14k">516,731원/돈</span>
-   173	                            <span class="price-change down"><i class="fas fa-arrow-down"></i> -0.05%</span>
-   174	                        </div>
-   175	                    </div>
-   176	                </div>
-   177	
-   178	                <div class="price-card">
-   179	                    <div class="price-header">
-   180	                        <h3 class="price-title">백금</h3>
-   181	                    </div>
-   182	                    <div class="price-body">
-   183	                        <div class="price-item">
-   184	                            <span class="price-label">매입</span>
-   185	                            <span class="price-value" data-price="buy-pt">429,200원/돈</span>
-   186	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.2%</span>
-   187	                        </div>
-   188	                        <div class="price-item">
-   189	                            <span class="price-label">매도</span>
-   190	                            <span class="price-value" data-price="sell-pt">353,320원/돈</span>
-   191	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.2%</span>
-   192	                        </div>
-   193	                    </div>
-   194	                </div>
-   195	
-   196	                <div class="price-card">
-   197	                    <div class="price-header">
-   198	                        <h3 class="price-title">은</h3>
-   199	                    </div>
-   200	                    <div class="price-body">
-   201	                        <div class="price-item">
-   202	                            <span class="price-label">매입</span>
-   203	                            <span class="price-value" data-price="buy-ag">19,720원/돈</span>
-   204	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.5%</span>
-   205	                        </div>
-   206	                        <div class="price-item">
-   207	                            <span class="price-label">매도</span>
-   208	                            <span class="price-value" data-price="sell-ag">16,240원/돈</span>
-   209	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.5%</span>
-   210	                        </div>
-   211	                    </div>
-   212	                </div>
-   213	
-   214	                <div class="price-card highlight">
-   215	                    <div class="price-header">
-   216	                        <h3 class="price-title">골드바 1돈</h3>
-   217	                        <span class="price-badge hot">인기</span>
-   218	                    </div>
-   219	                    <div class="price-body">
-   220	                        <div class="price-item">
-   221	                            <span class="price-label">매입</span>
-   222	                            <span class="price-value" data-price="buy-1don">1,073,000원/돈</span>
-   223	                            <span class="price-change up"><i class="fas fa-arrow-up"></i> +0.1%</span>
-   224	                        </div>
-   225	                        <div class="price-item">
-   226	                            <span class="price-label">매도</span>
-   227	                            <span class="price-value" data-price="sell-1don">883,300원/돈</span>
-   228	                            <span class="price-change down"><i class="fas fa-arrow-down"></i> -0.1%</span>
-   229	                        </div>
-   230	                    </div>
-   231	                </div>
-   232	            </div>
-   233	        </div>
-   234	    </section>
-   235	
-   236	    <!-- 회원가입 섹션 -->
-   237	    <section class="section signup" id="signup">
-   238	        <div class="container">
-   239	            <div class="section-header">
-   240	                <h2 class="section-title">회원가입</h2>
-   241	                <p class="section-subtitle">GS GOLD&FINE의 다양한 혜택을 누려보세요</p>
-   242	            </div>
-   243	
-   244	            <div class="signup-container">
-   245	                <div class="signup-benefits">
-   246	                    <h3>회원 혜택</h3>
-   247	                    <ul class="benefits-list">
-   248	                        <li><i class="fas fa-check-circle"></i> 신규 가입 시 <strong>10,000 포인트</strong> 즉시 증정</li>
-   249	                        <li><i class="fas fa-check-circle"></i> 회원 전용 특별 할인</li>
-   250	                        <li><i class="fas fa-check-circle"></i> 금시세 알림 서비스</li>
-   251	                        <li><i class="fas fa-check-circle"></i> 등급별 추가 혜택</li>
-   252	                        <li><i class="fas fa-check-circle"></i> 전담 상담사 배정</li>
-   253	                    </ul>
-   254	                </div>
-   255	
-   256	                <form class="signup-form" id="signupForm">
-   257	                    <div class="form-row">
-   258	                        <div class="form-group">
-   259	                            <label for="signupName">이름 <span class="required">*</span></label>
-   260	                            <input type="text" id="signupName" name="name" required placeholder="홍길동">
-   261	                        </div>
-   262	                    </div>
-   263	
-   264	                    <div class="form-row">
-   265	                        <div class="form-group">
-   266	                            <label for="signupId">아이디 <span class="required">*</span></label>
-   267	                            <div class="input-group">
-   268	                                <input type="text" id="signupId" name="userId" required placeholder="4-20자 영문, 숫자">
-   269	                                <button type="button" class="btn-check" id="btnCheckId">중복확인</button>
-   270	                            </div>
-   271	                            <span class="form-message" id="idCheckMessage"></span>
-   272	                        </div>
-   273	                    </div>
-   274	
-   275	                    <div class="form-row">
-   276	                        <div class="form-group">
-   277	                            <label for="signupPassword">비밀번호 <span class="required">*</span></label>
-   278	                            <input type="password" id="signupPassword" name="password" required placeholder="8자 이상, 영문+숫자+특수문자">
-   279	                            <span class="form-message" id="passwordMessage"></span>
-   280	                        </div>
-   281	                    </div>
-   282	
-   283	                    <div class="form-row">
-   284	                        <div class="form-group">
-   285	                            <label for="signupPasswordConfirm">비밀번호 확인 <span class="required">*</span></label>
-   286	                            <input type="password" id="signupPasswordConfirm" name="passwordConfirm" required placeholder="비밀번호 재입력">
-   287	                            <span class="form-message" id="passwordConfirmMessage"></span>
-   288	                        </div>
-   289	                    </div>
-   290	
-   291	                    <div class="form-row">
-   292	                        <div class="form-group">
-   293	                            <label for="signupEmail">이메일 <span class="required">*</span></label>
-   294	                            <input type="email" id="signupEmail" name="email" required placeholder="example@email.com">
-   295	                        </div>
-   296	                    </div>
-   297	
-   298	                    <div class="form-row">
-   299	                        <div class="form-group">
-   300	                            <label for="signupPhone">연락처 <span class="required">*</span></label>
-   301	                            <input type="tel" id="signupPhone" name="phone" required placeholder="010-0000-0000" maxlength="13">
-   302	                        </div>
-   303	                    </div>
-   304	
-   305	                    <div class="form-group">
-   306	                        <div class="checkbox-group">
-   307	                            <label class="checkbox-label">
-   308	                                <input type="checkbox" id="agreeAll">
-   309	                                <span>전체 동의</span>
-   310	                            </label>
-   311	                        </div>
-   312	                        <div class="checkbox-group">
-   313	                            <label class="checkbox-label">
-   314	                                <input type="checkbox" name="agree" class="agree-checkbox" required>
-   315	                                <span>[필수] 이용약관 동의</span>
-   316	                            </label>
-   317	                        </div>
-   318	                        <div class="checkbox-group">
-   319	                            <label class="checkbox-label">
-   320	                                <input type="checkbox" name="agree" class="agree-checkbox" required>
-   321	                                <span>[필수] 개인정보 수집 및 이용 동의</span>
-   322	                            </label>
-   323	                        </div>
-   324	                        <div class="checkbox-group">
-   325	                            <label class="checkbox-label">
-   326	                                <input type="checkbox" name="marketing" class="agree-checkbox">
-   327	                                <span>[선택] 마케팅 정보 수신 동의</span>
-   328	                            </label>
-   329	                        </div>
-   330	                    </div>
-   331	
-   332	                    <button type="submit" class="btn btn-primary btn-block">회원가입 완료</button>
-   333	                </form>
-   334	            </div>
-   335	        </div>
-   336	    </section>
-   337	
-   338	    <!-- 포인트 교환 섹션 -->
-   339	    <section class="section exchange" id="exchange">
-   340	        <div class="container">
-   341	            <div class="section-header">
-   342	                <h2 class="section-title">포인트 교환</h2>
-   343	                <p class="section-subtitle">보유 포인트로 골드바와 실버바를 교환하세요</p>
-   344	            </div>
-   345	
-   346	            <div class="points-display">
-   347	                <div class="points-card">
-   348	                    <i class="fas fa-coins"></i>
-   349	                    <div class="points-info">
-   350	                        <span class="points-label">보유 포인트</span>
-   351	                        <span class="points-value" id="exchangePoints">1,250,000 P</span>
-   352	                    </div>
-   353	                </div>
-   354	            </div>
-   355	
-   356	            <div class="exchange-tabs">
-   357	                <button class="tab-btn active" data-tab="goldbar">골드바</button>
-   358	                <button class="tab-btn" data-tab="silverbar">실버바</button>
-   359	            </div>
-   360	
-   361	            <div class="tab-content active" id="goldbar">
-   362	                <div class="products-grid">
-   363	                    <div class="product-card popular">
-   364	                        <div class="product-badge hot">인기</div>
-   365	                        <h3 class="product-title">골드바 3.75g (1돈)</h3>
-   366	                        <div class="product-price">1,073,000 P</div>
-   367	                        <button class="btn btn-exchange" data-product="골드바 3.75g (1돈)" data-points="1073000">교환 신청</button>
-   368	                    </div>
-   369	
-   370	                    <div class="product-card">
-   371	                        <div class="product-badge">골드바</div>
-   372	                        <h3 class="product-title">골드바 37.5g (10돈)</h3>
-   373	                        <div class="product-price">10,730,000 P</div>
-   374	                        <button class="btn btn-exchange" data-product="골드바 37.5g (10돈)" data-points="10730000">교환 신청</button>
-   375	                    </div>
-   376	
-   377	                    <div class="product-card premium">
-   378	                        <div class="product-badge premium">프리미엄</div>
-   379	                        <h3 class="product-title">골드바 1kg</h3>
-   380	                        <div class="product-price">286,133,000 P</div>
-   381	                        <button class="btn btn-exchange" data-product="골드바 1kg" data-points="286133000">교환 신청</button>
-   382	                    </div>
-   383	                </div>
-   384	            </div>
-   385	
-   386	            <div class="tab-content" id="silverbar">
-   387	                <div class="products-grid">
-   388	                    <div class="product-card popular">
-   389	                        <div class="product-badge hot">인기</div>
-   390	                        <h3 class="product-title">실버바 3.75g (1돈)</h3>
-   391	                        <div class="product-price">19,720 P</div>
-   392	                        <button class="btn btn-exchange" data-product="실버바 3.75g (1돈)" data-points="19720">교환 신청</button>
-   393	                    </div>
-   394	
-   395	                    <div class="product-card">
-   396	                        <h3 class="product-title">실버바 37.5g (10돈)</h3>
-   397	                        <div class="product-price">197,200 P</div>
-   398	                        <button class="btn btn-exchange" data-product="실버바 37.5g (10돈)" data-points="197200">교환 신청</button>
-   399	                    </div>
-   400	
-   401	                    <div class="product-card premium">
-   402	                        <div class="product-badge premium">프리미엄</div>
-   403	                        <h3 class="product-title">실버바 1kg</h3>
-   404	                        <div class="product-price">5,810,000 P</div>
-   405	                        <button class="btn btn-exchange" data-product="실버바 1kg" data-points="5810000">교환 신청</button>
-   406	                    </div>
-   407	                </div>
-   408	            </div>
-   409	
-   410	            <div class="exchange-history">
-   411	                <h3>교환 내역</h3>
-   412	                <div class="table-responsive">
-   413	                    <table class="data-table">
-   414	                        <thead>
-   415	                            <tr>
-   416	                                <th>날짜</th>
-   417	                                <th>상품명</th>
-   418	                                <th>사용 포인트</th>
-   419	                                <th>상태</th>
-   420	                            </tr>
-   421	                        </thead>
-   422	                        <tbody id="exchangeHistoryTable">
-   423	                            <tr>
-   424	                                <td colspan="4" class="text-center">교환 내역이 없습니다</td>
-   425	                            </tr>
-   426	                        </tbody>
-   427	                    </table>
-   428	                </div>
-   429	            </div>
-   430	        </div>
-   431	    </section>
-   432	
-   433	    <!-- 포인트 충전 섹션 -->
-   434	    <section class="section charge" id="charge">
-   435	        <div class="container">
-   436	            <div class="section-header">
-   437	                <h2 class="section-title">포인트 충전</h2>
-   438	                <p class="section-subtitle">입금 후 충전 요청을 하시면 관리자 확인 후 포인트가 지급됩니다</p>
-   439	            </div>
-   440	
-   441	            <div class="charge-container">
-   442	                <!-- 입금 정보 안내 -->
-   443	                <div class="bank-info-card">
-   444	                    <h3><i class="fas fa-university"></i> 입금 계좌 안내</h3>
-   445	                    <div class="bank-details">
-   446	                        <div class="bank-row">
-   447	                            <span class="bank-label">은행명</span>
-   448	                            <span class="bank-value">국민은행</span>
-   449	                        </div>
-   450	                        <div class="bank-row">
-   451	                            <span class="bank-label">예금주</span>
-   452	                            <span class="bank-value">GS GOLD&FINE</span>
-   453	                        </div>
-   454	                        <div class="bank-row">
-   455	                            <span class="bank-label">계좌번호</span>
-   456	                            <span class="bank-value bank-number">123-456-789012</span>
-   457	                            <button class="btn-copy" onclick="copyBankAccount()">
-   458	                                <i class="fas fa-copy"></i> 복사
-   459	                            </button>
-   460	                        </div>
-   461	                    </div>
-   462	                    <div class="bank-notice">
-   463	                        <p><i class="fas fa-exclamation-triangle"></i> 입금자명을 정확히 입력해주세요</p>
-   464	                        <p><i class="fas fa-clock"></i> 입금 확인 후 관리자 승인까지 약 10분~1시간 소요됩니다</p>
-   465	                    </div>
-   466	                </div>
-   467	
-   468	                <!-- 충전 요청 폼 -->
-   469	                <div class="charge-form">
-   470	                    <h3>충전 요청</h3>
-   471	                    <p class="form-description">입금을 완료하신 후 아래 정보를 입력해주세요</p>
-   472	                    
-   473	                    <div class="form-group">
-   474	                        <label for="chargeAmount">충전 금액 *</label>
-   475	                        <input type="number" id="chargeAmount" placeholder="입금하신 금액을 입력하세요" min="100000" step="10000" required>
-   476	                        <small class="form-help">최소 충전 금액: 100,000원 | 1원 = 1포인트</small>
-   477	                    </div>
-   478	
-   479	                    <div class="form-group">
-   480	                        <label for="depositorName">입금자명 *</label>
-   481	                        <input type="text" id="depositorName" placeholder="홍길동" required>
-   482	                        <small class="form-help">입금하신 분의 성함을 정확히 입력해주세요</small>
-   483	                    </div>
-   484	
-   485	                    <div class="form-group">
-   486	                        <label for="depositDate">입금 날짜 *</label>
-   487	                        <input type="date" id="depositDate" required>
-   488	                    </div>
-   489	
-   490	                    <div class="form-group">
-   491	                        <label for="chargeMemo">메모 (선택)</label>
-   492	                        <textarea id="chargeMemo" rows="3" placeholder="추가로 전달하실 내용이 있으시면 입력해주세요"></textarea>
-   493	                    </div>
-   494	
-   495	                    <div class="charge-summary">
-   496	                        <h3>요청 요약</h3>
-   497	                        <div class="summary-row">
-   498	                            <span>충전 금액</span>
-   499	                            <span class="summary-value" id="summaryAmount">0원</span>
-   500	                        </div>
-   501	                        <div class="summary-row">
-   502	                            <span>예상 포인트</span>
-   503	                            <span class="summary-value gold" id="summaryPoints">0 P</span>
-   504	                        </div>
-   505	                    </div>
-   506	
-   507	                    <button class="btn btn-primary btn-block" id="btnChargeRequest">충전 요청하기</button>
-   508	
-   509	                    <div class="charge-notice">
-   510	                        <p><i class="fas fa-info-circle"></i> 충전 금액과 포인트는 1:1로 적립됩니다</p>
-   511	                        <p><i class="fas fa-info-circle"></i> 최소 충전 금액은 100,000원입니다</p>
-   512	                        <p><i class="fas fa-check-circle"></i> 관리자 승인 후 포인트가 즉시 지급됩니다</p>
-   513	                        <p><i class="fas fa-info-circle"></i> 포인트 유효기간은 5년입니다</p>
-   514	                    </div>
-   515	                </div>
-   516	            </div>
-   517	
-   518	            <div class="charge-history">
-   519	                <h3>충전 요청 내역</h3>
-   520	                <div class="table-responsive">
-   521	                    <table class="data-table">
-   522	                        <thead>
-   523	                            <tr>
-   524	                                <th>요청일시</th>
-   525	                                <th>입금자명</th>
-   526	                                <th>충전 금액</th>
-   527	                                <th>포인트</th>
-   528	                                <th>상태</th>
-   529	                                <th>처리일시</th>
-   530	                            </tr>
-   531	                        </thead>
-   532	                        <tbody id="chargeHistoryTable">
-   533	                            <tr>
-   534	                                <td colspan="6" class="text-center">충전 요청 내역이 없습니다</td>
-   535	                            </tr>
-   536	                        </tbody>
-   537	                    </table>
-   538	                </div>
-   539	            </div>
-   540	        </div>
-   541	    </section>
-   542	
-   543	    <!-- 상품 안내 섹션 -->
-   544	    <section class="section products" id="products">
-   545	        <div class="container">
-   546	            <div class="section-header">
-   547	                <h2 class="section-title">상품 안내</h2>
-   548	                <p class="section-subtitle">다양한 금 투자 상품을 만나보세요</p>
-   549	            </div>
-   550	
-   551	            <div class="products-gallery">
-   552	                <div class="product-item">
-   553	                    <div class="product-image">
-   554	                        <i class="fas fa-cube"></i>
-   555	                    </div>
-   556	                    <h3 class="product-name">순금 골드바</h3>
-   557	                    <p class="product-desc">순도 99.99% 인증된 골드바</p>
-   558	                </div>
-   559	
-   560	                <div class="product-item">
-   561	                    <div class="product-image silver">
-   562	                        <i class="fas fa-cube"></i>
-   563	                    </div>
-   564	                    <h3 class="product-name">실버바</h3>
-   565	                    <p class="product-desc">순도 99.9% 인증된 실버바</p>
-   566	                </div>
-   567	
-   568	                <div class="product-item">
-   569	                    <div class="product-image">
-   570	                        <i class="fas fa-chart-line"></i>
-   571	                    </div>
-   572	                    <h3 class="product-name">골드바 투자용 상품</h3>
-   573	                    <p class="product-desc">장기 투자에 최적화된 골드바</p>
-   574	                </div>
-   575	
-   576	                <div class="product-item">
-   577	                    <div class="product-image silver">
-   578	                        <i class="fas fa-chart-line"></i>
-   579	                    </div>
-   580	                    <h3 class="product-name">실버바 투자용 상품</h3>
-   581	                    <p class="product-desc">분산 투자를 위한 스마트한 선택</p>
-   582	                </div>
-   583	            </div>
-   584	        </div>
-   585	    </section>
-   586	
-   587	    <!-- 회사 소개 섹션 -->
-   588	    <section class="section about" id="about">
-   589	        <div class="container">
-   590	            <div class="about-content">
-   591	                <div class="about-text">
-   592	                    <h2 class="section-title"><strong>지에스골드파인 - 신뢰할 수 있는 금거래 파트너</strong></h2>
-   593	                    <p>지에스골드(GS GOLD&FINE)는 30년의 역사와 전통을 자랑하는 대한민국 대표 금거래 전문 기업입니다. 
-   594	                    투명한 거래와 고객 만족을 최우선으로 하며, 전문 감정사의 정확한 감정과 
-   595	                    한국금거래소 기준 공정한 시세를 제공합니다. 골드바, 실버바, 순금, 18K, 14K 등 다양한 귀금속 거래를 안전하게 진행하실 수 있습니다.</p>
-   596	                </div>
-   597	                <div class="about-image">
-   598	                    <i class="fas fa-trophy"></i>
-   599	                </div>
-   600	            </div>
-   601	            
-   602	            <!-- SEO 키워드 섹션 -->
-   603	            <div class="seo-keywords" style="margin-top: 60px; padding: 40px; background: #f9f9f9; border-radius: 15px;">
-   604	                <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--primary-gold); text-align: center;">지에스골드파인 주요 서비스</h3>
-   605	                <div style="line-height: 1.8; color: #666; font-size: 0.95rem;">
-   606	                    <p style="margin-bottom: 15px;">
-   607	                        <strong>지에스골드</strong>, <strong>지에스골드파인</strong>, <strong>GS GOLD</strong>, <strong>GS GOLD FINE</strong>은 
-   608	                        대한민국 최고의 금거래 전문 기업으로, 실시간 금시세 확인, 골드바 매입/매도, 실버바 거래, 
-   609	                        순금 24K, 18K, 14K 귀금속 거래를 전문으로 합니다.
-   610	                    </p>
-   611	                    <p style="margin-bottom: 15px;">
-   612	                        한국금거래소(KGX) 기준 실시간 시세를 제공하며, 투명하고 공정한 거래를 약속드립니다. 
-   613	                        금 투자, 골드바 투자, 실버바 투자를 고려하시는 분들께 최적의 솔루션을 제공합니다.
-   614	                    </p>
-   615	                    <p>
-   616	                        <strong>주요 거래 품목:</strong> 순금 24K, 순금 18K, 순금 14K, 백금(플래티넘), 은(실버), 
-   617	                        골드바 1돈/10돈/1kg, 실버바 1돈/1kg, 귀금속 매입/매도
-   618	                    </p>
-   619	                </div>
-   620	            </div>
-   621	        </div>
-   622	    </section>
-   623	
-   624	    <!-- 푸터 -->
-   625	    <footer class="footer">
-   626	        <div class="container">
-   627	            <div class="footer-content">
-   628	                <div class="footer-section">
-   629	                    <h4>빠른 링크</h4>
-   630	                    <ul class="footer-links">
-   631	                        <li><a href="#home">홈</a></li>
-   632	                        <li><a href="#about">회사소개</a></li>
-   633	                        <li><a href="#prices">금시세</a></li>
-   634	                        <li><a href="#products">상품안내</a></li>
-   635	                    </ul>
-   636	                </div>
-   637	
-   638	                <div class="footer-section">
-   639	                    <h4>회사 정보</h4>
-   640	                    <p>서울특별시 강남구 테헤란로 123</p>
-   641	                    <p>대표: 홍길동</p>
-   642	                    <p>사업자등록번호: 123-45-67890</p>
-   643	                    <p>TEL: 1588-0000</p>
-   644	                </div>
-   645	            </div>
-   646	
-   647	            <div class="footer-bottom">
-   648	                <p>&copy; 2024 GS GOLD&FINE. All Rights Reserved.</p>
-   649	                <div class="footer-legal">
-   650	                    <a href="#">이용약관</a>
-   651	                    <a href="#">개인정보처리방침</a>
-   652	                </div>
-   653	            </div>
-   654	        </div>
-   655	    </footer>
-   656	
-   657	    <!-- 스크롤 투 탑 버튼 -->
-   658	    <button class="scroll-top" id="scrollTop">
-   659	        <i class="fas fa-arrow-up"></i>
-   660	    </button>
-   661	
-   662	    <!-- 로그인 모달 -->
-   663	    <div class="modal" id="loginModal">
-   664	        <div class="modal-content">
-   665	            <div class="modal-header">
-   666	                <h3>로그인</h3>
-   667	                <button class="modal-close" id="closeLoginModal">
-   668	                    <i class="fas fa-times"></i>
-   669	                </button>
-   670	            </div>
-   671	            <form class="login-form" id="loginForm">
-   672	                <div class="form-group">
-   673	                    <label for="loginId">아이디</label>
-   674	                    <input type="text" id="loginId" required>
-   675	                </div>
-   676	                <div class="form-group">
-   677	                    <label for="loginPassword">비밀번호</label>
-   678	                    <input type="password" id="loginPassword" required>
-   679	                </div>
-   680	                <button type="submit" class="btn btn-primary btn-block">로그인</button>
-   681	            </form>
-   682	        </div>
-   683	    </div>
-   684	
-   685	    <script src="js/main.js"></script>
-   686	<script src="https://www.genspark.ai/sandbox_inspect.js"></script></body>
-   687	</html>
-   688	
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지에스골드파인 | GS GOLD&FINE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 전체 초기화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --gold: #D4AF37;
+            --dark: #1a1a2e;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 헤더 */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--gold);
+        }
+        
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 섹션 */
+        .section {
+            display: none;
+            padding: 100px 0 50px;
+            min-height: 100vh;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* 히어로 */
+        .hero {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+        }
+        
+        /* 섹션 헤더 */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        /* 금시세 카드 */
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .price-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .price-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-label {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .price-value {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        /* 회사소개 */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        /* 푸터 */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: var(--gold);
+        }
+        
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 4rem 2rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                transition: right 0.3s;
+            }
+            
+            .nav-menu.show {
+                right: 0;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .prices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 로딩 표시 */
+        body::after {
+            content: "✅ CSS 로드 완료!";
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            animation: fadeOut 3s forwards;
+            z-index: 9999;
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-icon">💰</span>
+                <span>GS GOLD&FINE</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">홈</a></li>
+                <li><a href="#about" class="nav-link">회사소개</a></li>
+                <li><a href="#prices" class="nav-link">금시세</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 히어로 -->
+    <section class="hero" id="home">
+        <h1 class="hero-title">지에스골드&파인</h1>
+        <p class="hero-subtitle">신뢰와 투명성을 바탕으로 최고의 금거래 서비스를 제공합니다</p>
+        <div>
+            <a href="#prices" class="btn">실시간 금시세</a>
+            <a href="#about" class="btn">회사소개</a>
+        </div>
+    </section>
+
+    <!-- 금시세 -->
+    <section class="section" id="prices">
+        <div class="container">
+            <h2 class="section-title">실시간 금시세</h2>
+            <p class="section-subtitle">한국금거래소(KGX) 기준 시세</p>
+            
+            <div class="prices-grid">
+                <div class="price-card">
+                    <h3 class="price-title">순금 24K</h3>
+                    <div class="price-item">
+                        <span class="price-label">살때</span>
+                        <span class="price-value">1,073,000원/돈</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">팔때</span>
+                        <span class="price-value">883,300원/돈</span>
+                    </div>
+                </div>
+                
+                <div class="price-card">
+                    <h3 class="price-title">순금 18K</h3>
+                    <div class="price-item">
+                        <span class="price-label">살때</span>
+                        <span class="price-value">804,750원/돈</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">팔때</span>
+                        <span class="price-value">662,475원/돈</span>
+                    </div>
+                </div>
+                
+                <div class="price-card">
+                    <h3 class="price-title">골드바 1돈</h3>
+                    <div class="price-item">
+                        <span class="price-label">살때</span>
+                        <span class="price-value">1,073,000원/돈</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">팔때</span>
+                        <span class="price-value">883,300원/돈</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 회사소개 -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title"><strong>지에스골드파인 - 신뢰할 수 있는 금거래 파트너</strong></h2>
+                <p>지에스골드(GS GOLD&FINE)는 30년의 역사와 전통을 자랑하는 대한민국 대표 금거래 전문 기업입니다. 
+                투명한 거래와 고객 만족을 최우선으로 하며, 전문 감정사의 정확한 감정과 
+                한국금거래소 기준 공정한 시세를 제공합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>빠른 링크</h4>
+                    <ul>
+                        <li><a href="#home">홈</a></li>
+                        <li><a href="#about">회사소개</a></li>
+                        <li><a href="#prices">금시세</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>회사 정보</h4>
+                    <p>서울특별시 강남구 테헤란로 123</p>
+                    <p>대표: 홍길동</p>
+                    <p>TEL: 1588-0000</p>
+                </div>
+            </div>
+            <p>&copy; 2024 GS GOLD&FINE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 메뉴 토글
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+            });
+        }
+        
+        // 섹션 전환
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(sectionId);
+            if (target && target.classList.contains('section')) {
+                target.classList.add('active');
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+            navMenu.classList.remove('show');
+        }
+        
+        // 메뉴 클릭
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const hash = link.getAttribute('href').substring(1);
+                if (hash !== 'home') showSection(hash);
+                else window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        
+        // 버튼 클릭
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const href = btn.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const hash = href.substring(1);
+                    showSection(hash);
+                }
+            });
+        });
+        
+        // 페이지 로드 시
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && hash !== 'home') showSection(hash);
+        });
+    </script>
+</body>
+</html>

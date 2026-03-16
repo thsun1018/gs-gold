@@ -1,4 +1,4 @@
-  1	// ===== localStorage 키 =====
+ 1	// ===== localStorage 키 =====
      2	const STORAGE_KEYS = {
      3	    USERS: 'gs_gold_users',
      4	    CURRENT_USER: 'gs_gold_current_user',
